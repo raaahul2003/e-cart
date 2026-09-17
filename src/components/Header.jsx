@@ -9,7 +9,7 @@ import { Badge } from 'react-bootstrap';
 function Header({insideLanding}) {
   return (
     <Navbar expand="lg" className="bg-body-tertiary" >
-      <Container className='d-flex justify-content-around'>
+      <Container className='d-flex justify-content-around align-items-center'>
         <Navbar.Brand href="/" className='align-items-center d-flex'>
           <img src={logo} alt="" width={'50px'} />
           <span className='fw-bold ms-3'>e-cart</span>
@@ -22,24 +22,13 @@ function Header({insideLanding}) {
           }
           <Nav className="ms-auto">
             <Nav.Link href="/wishlist">
-              <i className="fa-solid fa-heart text-danger fa-2x1"></i>
+              <i className="fa-solid fa-heart text-danger fa-2x1 fs-3"></i>
               <Badge className='fs-5 bg-light'>0</Badge>
             </Nav.Link>
             <Nav.Link href="/cart">
-              <i className="fa-solid fa-cart-shopping text-success fa-2x1"></i>
+              <i className="fa-solid fa-cart-shopping text-success fa-2x1 fs-3"></i>
               <Badge className='fs-5 bg-light'>0</Badge>
             </Nav.Link>
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
           </Nav>
         </Navbar.Collapse>
 
