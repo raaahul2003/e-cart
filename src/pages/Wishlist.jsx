@@ -1,14 +1,33 @@
 import React, { useState } from 'react'
 import Header from '../components/Header'
 import Card from 'react-bootstrap/Card';
-import logo from '../assets/logo.png'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeFromWishlists } from '../redux/slice/wishlistSlice';
+import { addToCart } from '../redux/slice/cartSlice';
 
 
 function Wishlist() {
   const wishlist = useSelector(state => state.wishlist)
+  const cart = useSelector(state => state.cart)
+  const dispatch = useDispatch()
   console.log(wishlist);
 
+  
+ const handleCart = (product)=>{
+
+    let existingProduct = cart.find(pro => pro.id == product.id)
+    if(existingProduct){
+      dispatch(addToCart(product))
+      alert("Product quantity incremented ✚ 1");
+      dispatch(removeFromWishlists(product.id))
+    }
+    else{
+      dispatch(addToCart(product))
+      dispatch(removeFromWishlists(product.id))
+
+    }
+
+  }
 
 
   return (
@@ -27,8 +46,8 @@ function Wishlist() {
                   <Card.Title className='text-center'>{pro.title.slice('1','15')}</Card.Title>
                   <Card.Title className='text-center text-success'>${pro.price}</Card.Title>
                   <div className='d-flex align-items-cneter justify-content-between mt-5'>
-                    <button className='btn'><i className="fa-solid fa-heart-circle-minus text-danger fa-2x1 fs-3"></i></button>
-                    <button className='btn'><i className="fa-solid fa-cart-plus text-success fa-2x1 fs-3" ></i></button>
+                    <button onClick={()=>dispatch(removeFromWishlists(pro?.id))} className='btn'><i className="fa-solid fa-heart-circle-minus text-danger fa-2x1 fs-3"></i></button>
+                    <button onClick={()=>handleCart(pro)} className='btn'><i className="fa-solid fa-cart-plus text-success fa-2x1 fs-3" ></i></button>
                   </div>
                 </Card.Body>
               </Card>

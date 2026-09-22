@@ -1,0 +1,17 @@
+body {
+  background: #f8f9fa;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer i {
+  transition: opacity 0.2s ease;
+}
+
+footer i:hover {
+  opacity: 0.8;
+}

@@ -6,6 +6,7 @@ import { fetchProducts } from '../redux/slice/productSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Spinner from 'react-bootstrap/Spinner';
 import Pageination from '../components/Pageination';
+import Footer from '../components/Footer';
 
 function Landing() {
   const dispatch = useDispatch()
@@ -65,6 +66,7 @@ function Landing() {
             </div>
           </div>
       }
+      <Footer />
     </>
   )
 }

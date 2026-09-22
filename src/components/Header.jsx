@@ -13,6 +13,8 @@ import { Link } from 'react-router';
 function Header({ insideLanding }) {
   const dispatch = useDispatch()
   const wishlist = useSelector(state => state.wishlist)
+  const cart = useSelector(state => state.cart)
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary" >
       <Container className='d-flex justify-content-around align-items-center'>
@@ -33,7 +35,7 @@ function Header({ insideLanding }) {
             </Link>
             <Link  to={"/cart"}>
               <i className="fa-solid fa-cart-shopping text-success  fs-3"></i>
-              <Badge className='fs-5 bg-light'>0</Badge>
+              <Badge className='fs-5 bg-light'>{cart?.length}</Badge>
             </Link>
           </Nav>
         </Navbar.Collapse>

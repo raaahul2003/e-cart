@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToWishlists } from '../redux/slice/wishlistSlice';
+import { addToCart } from '../redux/slice/cartSlice';
 
 
 
@@ -17,6 +18,7 @@ function Product() {
 
   const [product, setProduct] = useState({})
   const wishlist = useSelector(state => state.wishlist)
+  const cart = useSelector(state => state.cart)
 
   useEffect(() => {
 
@@ -44,6 +46,18 @@ function Product() {
     }
 
   }
+  const handleCart = ()=>{
+
+    let existingProduct = cart?.find(pro => pro.id == product.id)
+    if(existingProduct){
+      dispatch(addToCart(product))
+      alert("Product quantity incremented ✚ 1")
+    }
+    else{
+      dispatch(addToCart(product))
+    }
+
+  }
 
 
 
@@ -62,7 +76,7 @@ function Product() {
           <p style={{ textAlign: 'justify' }} className='my-3'>{product.description}</p>
           <div className='d-flex align-items-cneter justify-content-between mt-5'>
             <button onClick={handleWishlist} className='btn'><i className="fa-solid fa-heart-circle-plus text-danger fa-2x1 fs-1" ></i></button>
-            <button className='btn'><i className="fa-solid fa-cart-plus text-success fa-2x1 fs-1" ></i></button>
+            <button onClick={handleCart} className='btn'><i className="fa-solid fa-cart-plus text-success fa-2x1 fs-1" ></i></button>
           </div>
 
         </Col>
