@@ -64,11 +64,11 @@ function Product() {
   return (
     <>
       <Header />
-      <Row className='d-flex align-items-center'>
+      <Row className='d-flex align-items-center' style={{minHeight:'80vh'}}>
         <Col className='text-center'>
           <img src={product.thumbnail} alt="" />
         </Col>
-        <Col className='text-center p-5 '>
+        <Col className='text-center p-5'>
           <h2>{product.title} <br />
           <span>{product.brand}</span>
           </h2>

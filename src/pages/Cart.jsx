@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import { useDispatch, useSelector } from 'react-redux'
 import { decrementQuantity, emptyCart, incrementQuantity, removeFromCart } from '../redux/slice/cartSlice'
-import { Link, Navigate, useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 
 
